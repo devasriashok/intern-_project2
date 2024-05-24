@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('https://i.pinimg.com/564x/b0/3c/9f/b03c9ffd0ea345e26b11f290f7a56170.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .calculatorBox {
+    padding: 80px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  #calculatorForm {
+    text-align: center;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  input[type="number"] {
+    width: 100px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  button[type="submit"] {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: gray;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button[type="submit"]:hover {
+    background-color: #1e35ff; /* Royal blue */
+  }
+</style>
+<script>
+    function set(operation) {
+      document.getElementById('calculatorForm').action = 'http://localhost:3000/' + operation;
+    }
+  </script>
+</head>
+<body>
+  <div class="calculatorBox">
+    <h2>Calculator</h2>
+    <form id="calculatorForm" action="http://localhost:3000" method="GET">
+      <label for="num1">Enter number 1</label>
+      <input type="number" id="num1" name="num1" required><br>
+      
+      <label for="num2">Enter number 2</label>
+      <input type="number" id="num2" name="num2" ><br>
+
+      <button type="submit" onclick="set('add')">+</button>
+      <button type="submit" onclick="set('sub')">-</button><br>
+      <button type="submit" onclick="set('mul')">*</button>
+      <button type="submit" onclick="set('divide')">/</button><br>
+      <button type="submit" onclick="set('power')">^</button>
+      <button type="submit" onclick="set('modulo')">%</button><br>
+    </form>
+  </div>
+</body>
+</html>
